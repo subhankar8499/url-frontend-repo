@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { useAuth } from '../../context/AuthContext';
+import { API_BASE_URL } from '../context/AuthContext';
 import './CreateLink.css';
 
 const CreateLink = () => {
@@ -44,13 +44,13 @@ const CreateLink = () => {
       
       if (id) {
         // Edit existing link
-        await axios.patch(`/api/urls/${id}`, payload, {
+        const res = await axios.get(`${API_BASE_URL}/api/urls/${id}`, {
           headers: { Authorization: `Bearer ${user?.token}` }
         });
         toast.success('Link updated successfully!');
       } else {
         // Create new link
-        await axios.post('/api/urls', payload, {
+        await axios.post(`${API_BASE_URL}/api/urls`, payload, {
           headers: { Authorization: `Bearer ${user?.token}` }
         });
         toast.success('Link created successfully!');

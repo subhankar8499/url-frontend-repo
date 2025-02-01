@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { useAuth } from '../../context/AuthContext';
+import { API_BASE_URL } from '../context/AuthContext';
 import './Register.css';
 
 const Register = () => {
@@ -23,7 +23,7 @@ const Register = () => {
     }
 
     try {
-      const res = await axios.post('/api/auth/register', {
+      const res = await axios.post(`${API_BASE_URL}/api/auth/register`, {
         name,
         email,
         mobile,

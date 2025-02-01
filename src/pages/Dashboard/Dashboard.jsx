@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useAuth } from '../../context/AuthContext';
+import { API_BASE_URL } from '../context/AuthContext';
 import UrlItem from '../../components/UrlItem/UrlItem';
 import './Dashboard.css';
 
@@ -14,7 +14,7 @@ export default function Dashboard() {
   // Updated fetchUrls function with search and pagination parameters
   const fetchUrls = async (currentPage = 1, searchText = '') => {
     try {
-      const res = await axios.get('/api/urls', {
+      const res = await axios.get(`${API_BASE_URL}/api/urls`, {
         headers: { Authorization: `Bearer ${user?.token}` },
         params: {
           page: currentPage,

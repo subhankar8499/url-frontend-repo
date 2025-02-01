@@ -2,6 +2,9 @@ import { createContext, useState, useEffect } from 'react';
 
 export const AuthContext = createContext();
 
+// src/context/AuthContext.jsx
+export const API_BASE_URL = "https://mern-url-backend.onrender.com";
+
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
@@ -12,7 +15,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, setUser, API_BASE_URL }}>
       {children}
     </AuthContext.Provider>
   );

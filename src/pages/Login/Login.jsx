@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { useAuth } from '../../context/AuthContext';
+// Import the constant
+import { API_BASE_URL } from '../context/AuthContext';
+
 import './Login.css';
 
 export default function Login() {
@@ -14,7 +16,8 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/api/auth/login', { email, password });
+      // Update API call
+      const res = await axios.post(`${API_BASE_URL}/api/auth/login`, { email, password });
       localStorage.setItem('user', JSON.stringify(res.data.user));
       setUser(res.data.user);
       toast.success('Login successful!');
