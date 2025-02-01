@@ -1,0 +1,147 @@
+.analytics-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.analytics-title {
+  color: #1e293b;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.chart-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.chart-container h2 {
+  color: #475569;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.breakdown-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.breakdown-card h2 {
+  color: #475569;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.device-item {
+  margin-bottom: 1.5rem;
+}
+
+.device-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.browser-item {
+  margin-bottom: 1rem;
+}
+
+.browser-item span:first-child {
+  display: block;
+  color: #64748b;
+  margin-bottom: 0.3rem;
+}
+
+.browser-percentage {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.percentage-bar {
+  flex-grow: 1;
+  height: 6px;
+  background: #f1f5f9;
+  border-radius: 3px;
+  position: relative;
+}
+
+.percentage-bar::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: #3b82f6;
+  border-radius: 3px;
+  width: var(--width);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.pagination-btn {
+  padding: 0.5rem 1.5rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pagination-btn:hover {
+  background: #2563eb;
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    padding: 1rem;
+  }
+
+  .breakdown-card {
+    padding: 1rem;
+  }
+
+  .analytics-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pagination {
+    flex-direction: column;
+  }
+}
